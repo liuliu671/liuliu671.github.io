@@ -13,10 +13,6 @@
     
 
     
-        <meta name="description" content="什么是持久化？就是通过永久性存储介质将数据进行保存，然后在特殊的时间将保存的数据进行恢复，这就是持久化！（比如硬盘就是永久性存储介质，然后在特定时间将硬盘中的数据恢复到内存中！）
-为什么要进行持久化？防止数据的意外丢失，确保数据的安全性（比如突然断电的情况）
-持久化过程保存的是什么？是数据！数据！数"/>
-    
 
     <!--Author-->
     
@@ -25,14 +21,10 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="redis"/>
+        <meta property="og:title" content="test"/>
     
 
     <!--Open Graph Description-->
-    
-        <meta property="og:description" content="什么是持久化？就是通过永久性存储介质将数据进行保存，然后在特殊的时间将保存的数据进行恢复，这就是持久化！（比如硬盘就是永久性存储介质，然后在特定时间将硬盘中的数据恢复到内存中！）
-为什么要进行持久化？防止数据的意外丢失，确保数据的安全性（比如突然断电的情况）
-持久化过程保存的是什么？是数据！数据！数"/>
     
 
     <!--Open Graph Site Name-->
@@ -59,7 +51,7 @@
 
     <!-- Title -->
     
-    <title>redis - 柳姑娘博客</title>
+    <title>test - 柳姑娘博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -163,13 +155,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>redis</h1>
+                    <h1>test</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2020-08-29
+                            2020-08-30
                         
                     </span>
                 </div>
@@ -191,51 +183,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <img src="/.com//08/29/redis/1.png" class title="这是一个新的图片">  
-
-<p>什么是持久化？<br>就是通过永久性存储介质将数据进行保存，然后在特殊的时间将保存的数据进行恢复，这就是持久化！<br>（比如硬盘就是永久性存储介质，然后在特定时间将硬盘中的数据恢复到内存中！）</p>
-<p>为什么要进行持久化？<br>防止数据的意外丢失，确保数据的安全性（比如突然断电的情况）</p>
-<p>持久化过程保存的是什么？<br>是数据！数据！数据！</p>
-<p>持久化的两种方式：<br>RDB方式<br>AOF方式</p>
-<p>RDB方式(默认支持，无需配置)<br>RDB方式: 将当前的数据状态进行保存，快照形式，存储数据结果，存储格式简单，关注点在数据。</p>
-<p>RDB三种启动方式：</p>
-<ol>
-<li><p>save<br>命令：save<br> //作用：手动执行一次保存操作 （会将数据保存在一个文件名为dump.rdb的文件里 ）<br> 1.1  save指令相关配置</p>
-<pre><code> dbfilename dump.rdb  //设置本地数据库文件名，默认值为dump.rdb （按经验来讲，通常设置为dump-端口号.rdb）
- dir //设置存储.rdb文件的路径（通常设置成存储空间比较大的目录中，目录名为data）
- rdbcompression yes //设置存储至本地数据库时是否压缩数据，默认为 yes，采用 LZF 压缩(通常默认为开启状态，如果设置为no，可以节省 CPU 运行时间，但会使存储的文件变大（巨大）)
- rdbchecksum yes //设置是否进行RDB文件格式校验，该校验过程在写文件和读文件过程均进行    (通常默认为开启状态，如果设置为no，可以节约读写性过程约10%时间消耗，但是存储一定的数据损坏风险)</code></pre>
-<p> 1.2  save指令工作原理：</p>
-<pre><code> 按照一定的顺序一个个执行，一个指令完成再继续下一个指令。
- 场景：多个不同的客户端同时向一个redis服务器发送指令，按照一定的顺序分别执行，当执行save指令时，一旦时间过长，排在save后面的指令都将阻塞。 
- （注意：save指令的执行会阻塞当前Redis服务器，直到当前RDB过程完成为止，有可能会造成长时间阻塞，线上环境不建议使用。）</code></pre>
-</li>
-<li><p>bgsave<br>命令：bgsave<br> //作用：手动启动后台保存操作，但不是立即执行<br> 2.1  bgsave 工作原理：</p>
-<pre><code> 客户端向redis服务器发送bgsave指令，然后redis服务器返回一个消息给客户端(background saving started)，此时并没有真正执行，
- 在返回消息的时候，redis服务器还会去调用linux服务器的fork函数，生成子进程，让这个子进程去创建rdb文件同时保存数据，
- 做完了之后还会返回一条消息给redis服务器，告诉他完成了。
- （注意： bgsave命令是针对save阻塞问题做的优化。Redis内部所有涉及到RDB操作都采用bgsave的方式，save命令可以放弃使用。）</code></pre>
-</li>
-</ol>
-<pre><code>2.2  bgsave指令相关配置
-    跟save配置一样，多了一条
-    stop-writes-on-bgsave-error yes //后台存储过程中如果出现错误现象，是否停止保存操作(通常默认为开启状态)</code></pre>
-<ol start="3">
-<li>save配置<br>RDB启动方式-save配置<br> 3.1 在conf文件中进行配置：<pre><code>   save &lt;second&gt; &lt;changes&gt; ：指定多少时间、有多少次更新操作，就将数据同步到数据文件
-   #redis默认配置有三个条件，满足一个即进行持久化
-         save 900 1 #900s有1个更改
-         save 300 10 #300s有10个更改
-         save 60 10000 #60s有10000更改
-   参数说明：
-             second：监控时间范围
-             changes：监控key的变化量</code></pre>
- 3.2 save配置工作原理：<br> 在conf中配置好了之后，客户端发送一些操作指令给redis服务器，服务器又会返回结果给客户端。<br> 至于这个返回的结果怎么样才能影响save，要看这个发送的命令 1.是否会对数据产生影响 2.真正产生了影响 3.不进行数据比对<br>比如：save 10 2 //10秒有两个数据发生变化，就对数据进行保存。<br> get指令是不会对数据产生影响的，然后就是set del 都会对数据产生影响，连续set两次 都可以看作是发生了变化。<br> （注意： save配置要根据实际业务情况进行设置，频度过高或过低都会出现性能问题，结果可能是灾难性的<pre><code>      save配置中对于second与changes设置通常具有互补对应关系，尽量不要设置成包含性关系
-      save配置启动后执行的是bgsave操作）</code></pre>
-</li>
-</ol>
-<p>RDB优缺点：<br>优点：存储速度快、恢复数据的速度也快（比AOF快），特别适合数据备份，全量复制等场景<br>应用：服务器中每X小时执行bgsave备份，并将RDB文件拷贝到远程机器中，用于灾难恢复。</p>
-<p>缺点：<br>无法做到实时持久化，丢失数据的可能性很大<br>bgsave指令每次运行都要创建子进程，会消耗cpu的性能<br>RDB文件格式各版本服务之间数据格式无法兼容</p>
-
+                <img src="/2020/08/30/test/1.png" class title="图片">
 
                 
             </div>
