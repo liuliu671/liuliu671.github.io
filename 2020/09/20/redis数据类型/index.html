@@ -13,6 +13,10 @@
     
 
     
+        <meta name="description" content="数据类型：字符串（String），哈希(hash)，列表(list)，集合(sets)，有序集合(sorted sets)
+String类型可以存储的数据类型：  1.INT  2.Float  3.String
+String类型常用的命令：  set \get \del \incr \decr \"/>
+    
 
     <!--Author-->
     
@@ -21,10 +25,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="柳姑娘博客"/>
+        <meta property="og:title" content="redis数据类型"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="数据类型：字符串（String），哈希(hash)，列表(list)，集合(sets)，有序集合(sorted sets)
+String类型可以存储的数据类型：  1.INT  2.Float  3.String
+String类型常用的命令：  set \get \del \incr \decr \"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +40,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>数据库 - 柳姑娘博客</title>
+    <title>redis数据类型 - 柳姑娘博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -147,66 +155,106 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>数据库</h1>
+                <div class="post-heading">
+                    <h1>redis数据类型</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by lqy on
+                        
+                        
+                            2020-09-20
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/redis/">#redis</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/数据库/">数据库</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/09/20/redis数据类型/">
-        <h1 class="post-title archive">
-            redis数据类型
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-09-20
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2020/08/30/redis/">
-        <h1 class="post-title archive">
-            redis持久化
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-08-30
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>数据类型：<br>字符串（String），哈希(hash)，列表(list)，集合(sets)，有序集合(sorted sets)</p>
+<p>String类型可以存储的数据类型：<br>  1.INT<br>  2.Float<br>  3.String</p>
+<p>String类型常用的命令：<br>  set \get \del \incr \decr \incrby \decrby</p>
+<ol>
+<li><p>赋值 set keyname abc</p>
+</li>
+<li><p>取值 get keyname   //输出’abc’</p>
+</li>
+<li><p>删除 del keyname </p>
+</li>
+<li><p>增加数字 incr keyname //默认在Integer型的值中加1，若为string不能加1，会报错，若指定的key不存在，会自动生成，默认值为0，再加1</p>
+</li>
+<li><p>删除数字 decr keyname</p>
+</li>
+</ol>
+<ol start="6">
+<li><p>set num 2<br>增加指定数 incrby num 20  //输出’22’</p>
+</li>
+<li><p>删除指定数 decrby num 2   //输出20</p>
+</li>
+<li><p>批量设置值 mset key1 123 key2 456</p>
+</li>
+<li><p>批量获取值 mget key1 key2<br>//输出   ‘123’ ‘456’</p>
+</li>
+<li><p>追加内容 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/1.png" class title="append追加内容"></li>
+</ol>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
