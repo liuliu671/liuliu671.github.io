@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="String类型常用的操作命令：  set \get \del \incr \decr \incrby \decrby
+
+赋值 
+
+取值 
+
+删除 
+
+增加数字 
+
+默认在Integer型的值中加1，若为string不能加1，会报错，若指定的key不存在，会自动生成，默认值为0，再加1
+
+删除数字
+"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="lqy"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="redis数据类型之String"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="String类型常用的操作命令：  set \get \del \incr \decr \incrby \decrby
+
+赋值 
+
+取值 
+
+删除 
+
+增加数字 
+
+默认在Integer型的值中加1，若为string不能加1，会报错，若指定的key不存在，会自动生成，默认值为0，再加1
+
+删除数字
+"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="柳姑娘博客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://github.com/liuliu671/liuliu671.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://github.com/liuliu671/liuliu671.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>redis数据类型之String - 柳姑娘博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">返回主页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                标签
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                分类目录
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>redis数据类型之String</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by lqy on
+                        
+                        
+                            2020-09-20
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/数据类型/">#数据类型</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/数据库/">数据库</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>String类型常用的操作命令：<br>  set \get \del \incr \decr \incrby \decrby</p>
+<ol>
+<li><p>赋值 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/4.png" class title="赋值"></li>
+<li><p>取值 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/5.png" class title="取值"></li>
+<li><p>删除 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/6.png" class title="删除"></li>
+<li><p>增加数字 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/7.png" class title="增加数字">
+<p>默认在Integer型的值中加1，若为string不能加1，会报错，若指定的key不存在，会自动生成，默认值为0，再加1</p>
+</li>
+<li><p>删除数字</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/8.png" class title="删除数字">
+<p>默认是删除1</p>
+</li>
+<li><p>增加指定数</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/9.png" class title="增加指定数字">
+<p>指定增加3</p>
+</li>
+<li><p>删除指定数</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/10.png" class title="删除指定数字"></li>
+<li><p>批量设置值 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/2.png" class title="批量设置值"></li>
+<li><p>批量获取值 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/3.png" class title="批量获取值"></li>
+<li><p>追加内容 </p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/1.png" class title="append追加内容">
+</li>
+<li><p>setnx key value<br>只在键 key 不存在的情况下， 将键 key 的值设置为 value 。<br>若键 key 已经存在， 则 SETNX 命令不做任何动作。</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/11.png" class title="setnx">
+</li>
+<li><p>判断某个key是否存在</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/12.png" class title="判断某个key是否存在">
+</li>
+<li><p>设置key的过期时间</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/13.png" class title="设置key的过期时间">
+
+</li>
+</ol>
+<p>String类型可以存储的数据类型：<br>  1.INT<br>  2.Float<br>  3.String<br>  String存储原理：<br>  redis是一个KV的数据库，把这种KV的数据叫做字典dict,用hashtable实现<br>  每个KV都有一个dictEntry存储的<br>  key是存在SDS的，value是存在redisObject里的，然后再由redisObject指定具体的数  据结构，比如value也是一个字符串，那么又会指向一个SDS</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/14.png" class title="String存储原理"> 
+
+<p> SDS是指简单动态字符串（simple dynamic string）<br> String的三种编码（redis5.5）<br> 1.int，存储8个字节的长整型<br> 2.embstr，是存储小于44个字节的字符串<br> 3.raw，存储大于44个字节的字符串<br> <img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/15.png" class title="embstr和raw"><br> 用不同的编码实现同一种数据类型的目的是为了节省内存！！</p>
+<p> embstr和raw的区别：</p>
+<ol>
+<li>embstr存储redisObject和SDS时，是连续分配内存空间的，一次<br>raw 分配两次</li>
+<li>embstr的编码是只读的，当ebmstr的sds进行修改，就会先转换成raw，再进行修改，无论是否达到44个字节。<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/16.png" class title="embstr和raw"> 
+
+</li>
+</ol>
+<p>遵守一个原则：只会从小内存编码长度变为大的，不会从大的变小的，是不会还原的，但不包括重新赋值。</p>
+<p> redis是用C语言实现的，C语言是没有字符串类型的，它只能用字符数组char[]来实现字符串。<br> char[]缺点：<br> 1.内存，数组是必须先分配内存空间，如果分配的空间不够，可能会造成内存溢出；<br> 2.长度，获取字符数组的长度很复杂，需要遍历来获取，O(n) 时间由字符数组的长度来决定；<br> 3.长度变化，若字符数组的长度发生了变化，要重新分配内存；<br> 4.’\0 ‘对于二进制不安全,不安全的原因在于C语言中是根据空字符‘\0’来判断字符串是否已结尾，这样就不能保存例如图片、视频这样的二进制数据。</p>
+<p> Redis使用SDS的好处：<br> 1.不需要担心内存溢出的问题，长度发生变化，会进行扩容<br> 2.SDS中专门使用len属性来保存字符串的长度，就不需要去遍历，获取字符串长度的时间复杂度为O(1)，是固定的<br> 3.无论SDS存储内容变大变小，不是直接进行内存的增加和释放，它有空间预分配和惰性空间释放（可减少内存分配的次数）<br> 4.根据len字符长度来判断字符串是否结束</p>
+<p> String 的应用场景：<br> 1.缓存！一些热点数据、全页面的静态页面的缓存<br> 2.分布式的session！<br> 3.set NX EX 可用于实现分布式锁<br> 4.incr 可做全局ID的实现，分库分表的场景里<br> 5.incr 基于原子递增的，不管有多少用户同时访问，都是一个个增加的，可用来做计数器，比如文章的阅读量、微博的点赞数<br> 6.incr 可用于一个限流的业务场景，比如用访问者的信息+ip作为一个id，每访问一次就+1，到达访问限制，就不能进行访问了。<br> 7.位操作，可用于大数据的统计</p>
+<p> 二、Hash哈希<br> <img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BString/17.png" class title="hash类型结构推荐"> </p>
+<p> Hash的基本操作命令：<br> 注：所有hash的命令都是 h 开头的<br> 1.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 lqy<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

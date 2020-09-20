@@ -13,10 +13,6 @@
     
 
     
-        <meta name="description" content="数据类型：字符串（String），哈希(hash)，列表(list)，集合(sets)，有序集合(sorted sets)
-String类型可以存储的数据类型：  1.INT  2.Float  3.String
-String类型常用的命令：  set \get \del \incr \decr \"/>
-    
 
     <!--Author-->
     
@@ -29,10 +25,6 @@ String类型常用的命令：  set \get \del \incr \decr \"/>
     
 
     <!--Open Graph Description-->
-    
-        <meta property="og:description" content="数据类型：字符串（String），哈希(hash)，列表(list)，集合(sets)，有序集合(sorted sets)
-String类型可以存储的数据类型：  1.INT  2.Float  3.String
-String类型常用的命令：  set \get \del \incr \decr \"/>
     
 
     <!--Open Graph Site Name-->
@@ -155,7 +147,11 @@ String类型常用的命令：  set \get \del \incr \decr \"/>
 </nav>
 
     <!-- Main Content -->
-    <!-- Page Header -->
+    
+
+
+    <section class="main">
+        <!-- Page Header -->
 <!-- Set your background image for this header in your post front-matter: cover -->
 
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
@@ -167,8 +163,6 @@ String类型常用的命令：  set \get \del \incr \decr \"/>
                     
                     <span class="meta">
                         <!-- Date and Author -->
-                        
-                            Posted by lqy on
                         
                         
                             2020-09-20
@@ -187,74 +181,13 @@ String类型常用的命令：  set \get \del \incr \decr \"/>
 
             <!-- Tags and categories -->
            
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/redis/">#redis</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/数据库/">数据库</a>
-
-                    
-                </div>
-            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>数据类型：<br>字符串（String），哈希(hash)，列表(list)，集合(sets)，有序集合(sorted sets)</p>
-<p>String类型可以存储的数据类型：<br>  1.INT<br>  2.Float<br>  3.String</p>
-<p>String类型常用的命令：<br>  set \get \del \incr \decr \incrby \decrby</p>
-<ol>
-<li><p>赋值 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/4.png" class title="赋值"></li>
-<li><p>取值 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/5.png" class title="取值"></li>
-<li><p>删除 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/6.png" class title="删除"></li>
-<li><p>增加数字 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/7.png" class title="增加数字">
-<p>默认在Integer型的值中加1，若为string不能加1，会报错，若指定的key不存在，会自动生成，默认值为0，再加1</p>
-</li>
-<li><p>删除数字</p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/8.png" class title="删除数字">
-<p>默认是删除1</p>
-</li>
-</ol>
-<ol start="6">
-<li><p>增加指定数</p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/9.png" class title="增加指定数字">
-<p>指定增加3</p>
-</li>
-<li><p>删除指定数</p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/10.png" class title="删除指定数字"></li>
-<li><p>批量设置值 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/2.png" class title="批量设置值"></li>
-<li><p>批量获取值 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/3.png" class title="批量获取值"></li>
-<li><p>追加内容 </p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/1.png" class title="append追加内容">
-</li>
-<li><p>setnx key value<br>只在键 key 不存在的情况下， 将键 key 的值设置为 value 。<br>若键 key 已经存在， 则 SETNX 命令不做任何动作。</p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/11.png" class title="setnx">
-</li>
-<li><p>判断某个key是否存在</p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/12.png" class title="判断某个key是否存在">
-</li>
-<li><p>设置key的过期时间</p>
-<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/13.png" class title="设置key的过期时间"></li>
-</ol>
-
+                
 
                 
             </div>
@@ -270,6 +203,12 @@ String类型常用的命令：  set \get \del \incr \decr \"/>
         </div>
     </div>
 </article>
+    </section>
+
+
+
+
+
 
     <!-- Footer -->
     <hr />
