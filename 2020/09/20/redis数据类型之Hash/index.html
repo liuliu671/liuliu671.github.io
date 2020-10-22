@@ -13,7 +13,22 @@
     
 
     
-        <meta name="description" content="Hash存储结构图"/>
+        <meta name="description" content="Hash存储结构图
+
+存储类型：包含键值对的无序散列表。value 只能是字符串，不能嵌套其他类型。
+Hash基本操作命令：注：所有hash的命令都是 h 开头的1.单个赋值、取值
+
+
+2.多个赋值、取值
+
+
+3.获取某个key对应的所有field
+
+
+4.获取某个key对应的所有value
+
+
+5"/>
     
 
     <!--Author-->
@@ -28,7 +43,22 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Hash存储结构图"/>
+        <meta property="og:description" content="Hash存储结构图
+
+存储类型：包含键值对的无序散列表。value 只能是字符串，不能嵌套其他类型。
+Hash基本操作命令：注：所有hash的命令都是 h 开头的1.单个赋值、取值
+
+
+2.多个赋值、取值
+
+
+3.获取某个key对应的所有field
+
+
+4.获取某个key对应的所有value
+
+
+5"/>
     
 
     <!--Open Graph Site Name-->
@@ -188,7 +218,7 @@
                         
 
 
-<a href="/tags/数据类型/">#数据类型</a>
+<a href="/tags/redis数据类型/">#redis数据类型</a>
 
 
                     
@@ -205,6 +235,49 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>Hash存储结构图</p>
 <img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/1.png" class title="Hash存储结构图">
+<p>存储类型：包含键值对的无序散列表。value 只能是字符串，不能嵌套其他类型。</p>
+<p>Hash基本操作命令：<br>注：所有hash的命令都是 h 开头的<br>1.单个赋值、取值</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/3.png" class title="Hash单个赋值、取值">
+
+<p>2.多个赋值、取值</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/4.png" class title="Hash多个赋值、取值">
+
+<p>3.获取某个key对应的所有field</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/5.png" class title="获取某个key对应的所有field">
+
+<p>4.获取某个key对应的所有value</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/6.png" class title="获取某个key对应的所有value">
+
+<p>5.获取某key对应的所有field和value</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/7.png" class title="获取某key对应的所有field和value">
+
+<p>6.获取key对应的field的数量</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/8.png" class title="获取key对应的field的数量">
+
+<p>7.删除key对应的field（可指定删除多个field）</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/9.png" class title="删除key对应的field">
+
+<p>8.判断指定的key中对应的field是否存在，存在返回1，不存在返回0</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/10.png" class title="判断是否存在">
+
+<p>Hash存储结构：<br>1.ziplist-压缩列表<br>2.ht（hashtable）</p>
+<p>ziplist 压缩列表<br>ziplist 压缩列表是什么？<br>ziplist 是一个经过特殊编码的双向链表，它不存储指向上一个链表节点和指向下一 个链表节点的指针，而是存储上一个节点长度和当前节点长度，通过牺牲部分读写性能， 来换取高效的内存空间利用率，是一种时间换空间的思想。只用在字段个数少，字段值 小的场景里面。（存储长度长度长度！！）</p>
+<p>ziplist 的内部结构？</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/12.png" class title="ziplist">
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/13.png" class title="ziplist">
+
+<p>什么时候使用ziplist？<br>1.当存储的key对应的field小于512个字节时<br>2.当存储的key对应field里面的value小于64个字节时</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/2.png" class title="ziplist">
+<p>field若大于512字节，或value大于64个字节，都会转化为hashtable去存储</p>
+<p>Hashtable</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/14.png" class title="Hashtable">
+
+<p>Hash的应用场景：<br>1.String可以做的，hash都可以<br>2.用于存储对象类型的数据，比如存对象或者一张表的数据<br>3.可用于商城购物车</p>
+<img src="/2020/09/20/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BHash/11.png" class title="Hash的应用场景图">
+
+<p>key：用户id<br>field：商品id<br>value：商品数量</p>
+<p>+1：hincr<br>-1：hdecr<br>删除：hdel<br>全选：hgetall<br>商品数：hlen</p>
+
 
                 
             </div>

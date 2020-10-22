@@ -13,6 +13,21 @@
     
 
     
+        <meta name="description" content="Set 集合存储类型：String 类型的无序集合，最大存储数量 2^32-1（40 亿左右）。
+set集合常用的操作命令:1、添加一个或者多个元素
+
+2、获取所有元素
+
+3、统计元素个数
+
+4、随机获取一个元素
+
+5、随机弹出一个元素
+
+6、移除一个或者多个元素
+
+7、查看元素是否存在存在返回1，"/>
+    
 
     <!--Author-->
     
@@ -21,10 +36,25 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="柳姑娘博客"/>
+        <meta property="og:title" content="redis数据类型之Set"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Set 集合存储类型：String 类型的无序集合，最大存储数量 2^32-1（40 亿左右）。
+set集合常用的操作命令:1、添加一个或者多个元素
+
+2、获取所有元素
+
+3、统计元素个数
+
+4、随机获取一个元素
+
+5、随机弹出一个元素
+
+6、移除一个或者多个元素
+
+7、查看元素是否存在存在返回1，"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +62,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +81,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2020 - 柳姑娘博客</title>
+    <title>redis数据类型之Set - 柳姑娘博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -147,141 +177,96 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2020</h1>
+                <div class="post-heading">
+                    <h1>redis数据类型之Set</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                            Posted by lqy on
+                        
+                        
+                            2020-10-21
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/redis数据类型/">#redis数据类型</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/10/21/redis数据类型之ZSet/">
-        <h1 class="post-title archive">
-            redis数据类型之ZSet
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-10-21
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2020/10/21/redis数据类型之Set/">
-        <h1 class="post-title archive">
-            redis数据类型之Set
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-10-21
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Set 集合<br>存储类型：String 类型的无序集合，最大存储数量 2^32-1（40 亿左右）。</p>
+<p>set集合常用的操作命令:<br>1、添加一个或者多个元素</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/1.png" class title="set操作命令">
+<p>2、获取所有元素</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/2.png" class title="set操作命令">
+<p>3、统计元素个数</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/3.png" class title="set操作命令">
+<p>4、随机获取一个元素</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/4.png" class title="set操作命令">
+<p>5、随机弹出一个元素</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/5.png" class title="set操作命令">
+<p>6、移除一个或者多个元素</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/6.png" class title="set操作命令">
+<p>7、查看元素是否存在<br>存在返回1，不存在返回0</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/7.png" class title="set操作命令">
+
+<p>存储原理：<br>set是用 intset 或 hashtable 来存储的。<br>当元素为整数类型时，就用intset存储，如果元素超过512个字节，也会用hashtable来存储；<br>如果不是整数类型，就用 hashtable（数组+链表的存来储结构）。</p>
+<p>应用场景：<br>1、用于抽奖，随机弹出一个元素  spop<br>2、点赞、签到、打卡的维护<br>以微博点赞为例：</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/8.png" class title="应用场景">
+<p>这条微博的 ID 是 t1001，用户 ID 是 u3001。<br>用 like:t1001 来维护 t1001 这条微博的所有点赞用户。<br>点赞了这条微博：sadd like:t1001 u3001<br>取消点赞：srem like:t1001 u3001<br>是否点赞：sismember like:t1001 u3001<br>点赞的所有用户：smembers like:t1001<br>点赞数：scard like:t1001<br>3、用来维护商品标签<br>用 tags:i5001 来维护商品所有的标签。</p>
+<img src="/2020/10/21/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8BSet/9.png" class title="应用场景">
+<p>sadd tags:i5001 画面清晰细腻<br>sadd tags:i5001 真彩清晰显示屏<br>sadd tags:i5001 流畅至极<br>4、商品筛选，可以用到交集、差集、并集<br>获取差集 sdiff set1 set2<br>获取交集 sinter set1 set2<br>获取并集 sunion set1 set2</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2020/10/21/redis介绍/">
-        <h1 class="post-title archive">
-            redis简介
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-10-21
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/10/06/redis数据类型之List/">
-        <h1 class="post-title archive">
-            redis数据类型之List
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-10-06
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/09/20/redis数据类型之Hash/">
-        <h1 class="post-title archive">
-            redis数据类型之Hash
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-09-20
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/09/20/redis数据类型之String/">
-        <h1 class="post-title archive">
-            redis数据类型之String
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-09-20
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/08/30/redis/">
-        <h1 class="post-title archive">
-            redis持久化
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-            Posted by lqy on
-        
-        2020-08-30
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
